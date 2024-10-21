@@ -2,14 +2,26 @@ from appwrite.client import Client
 from appwrite.services.users import Users
 from appwrite.exception import AppwriteException
 import os
+import random
 
 def main(context):
-    
-    return context.res.json(
-        {
-            "motto": "Build like a team of hundreds_",
-            "learn": "https://appwrite.io/docs",
-            "connect": "https://appwrite.io/discord",
-            "getInspired": "https://builtwith.appwrite.io",
-        }
-    )
+    emotions = [
+        "快乐", "悲伤", "愤怒", "惊讶", "恐惧", "厌倦", "兴奋", "焦虑", "平静", "孤独",
+        "满足", "失落", "希望", "绝望", "自信", "怀疑", "骄傲", "羞愧", "感激", "嫉妒",
+        "爱", "恨", "困惑", "放松", "紧张", "好奇", "无聊", "兴奋", "沮丧", "愉快",
+        "悲观", "乐观", "温暖", "冷漠", "亲密", "疏远", "怀旧", "期待", "失望", "震惊",
+        "满足", "不安", "安宁", "激动", "平淡", "愉悦", "痛苦", "快乐", "悲伤", "愤怒",
+        "惊讶", "恐惧", "厌倦", "兴奋", "焦虑", "平静", "孤独", "满足", "失落", "希望",
+        "绝望", "自信", "怀疑", "骄傲", "羞愧", "感激", "嫉妒", "爱", "恨", "困惑",
+        "放松", "紧张", "好奇", "无聊", "兴奋", "沮丧", "愉快", "悲观", "乐观", "温暖",
+        "冷漠", "亲密", "疏远", "怀旧", "期待", "失望", "震惊", "满足", "不安", "安宁",
+        "激动", "平淡", "愉悦", "痛苦", "快乐", "悲伤", "愤怒", "惊讶", "恐惧", "厌倦",
+        "兴奋", "焦虑", "平静", "孤独", "满足", "失落", "希望", "绝望", "自信", "怀疑",
+        "骄傲", "羞愧", "感激", "嫉妒", "爱", "恨", "困惑", "放松", "紧张", "好奇",
+        "无聊", "兴奋", "沮丧", "愉快", "悲观", "乐观", "温暖", "冷漠", "亲密", "疏远",
+        "怀旧", "期待", "失望", "震惊"
+    ]
+
+    selected_emotions = random.sample(emotions, 10)
+
+    return context.res.json(selected_emotions)
