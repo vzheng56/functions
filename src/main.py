@@ -1,7 +1,6 @@
 from appwrite.client import Client
 from appwrite.services.users import Users
 from appwrite.exception import AppwriteException
-import os
 import random
 
 def main(context):
@@ -22,6 +21,9 @@ def main(context):
         "怀旧", "期待", "失望", "震惊"
     ]
 
-    selected_emotions = random.sample(emotions, 10)
+    selected_emotions = set()  # 使用集合来存储已选择的情绪
 
-    return context.res.json(selected_emotions)
+    while len(selected_emotions) < 10:  # 确保选择10个唯一的情绪
+        selected_emotions.add(random.choice(emotions))
+
+    return context.res.json(list(selected_emotions))  # 只返回情绪词汇
